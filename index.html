@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages. updated test
-</p>
+    <button type="button" onclick="change_text()">Show Block Height</button>
+    <p id="bh">Click button!</p>
+
+    <script>
+        function change_text(){
+            document.getElementById("bh").innerHTML = "You clicked the button, I am new paragraph.";
+        }
+        </script>
 </body>
 </html>
