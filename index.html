@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
 <body>
-    <button id="reportbtn" type="button" onclick="change_text()">Show Block Height</button>
+    <button type="button" onclick="change_text()">Show Block Height</button>
     <p id="bh">Click button!</p>
 
     <script>
         function change_text(){
-            document.getElementById("bh").innerHTML = "";
+            fetch('https://api-ropsten.etherscan.io/api?module=proxy&action=eth_blockNumber&apikey=YourApiKeyToken')
+            .then(response => response.json())
+            .then(data => yourNumber = parseInt(data.result, 16))
+            .then(data => document.getElementById("bh").innerHTML=yourNumber);
         }
-
-        $("#reportbtn").click(() => {
-                $.post("https://api-ropsten.etherscan.io/api?module=proxy&action=eth_blockNumber&apikey=YourApiKeyToken" ).done((data) => alert(data));
-        });
     </script>
 </body>
 </html>
