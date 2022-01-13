@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
 <body>
-    <button type="button" onclick="change_text()">Show Block Height</button>
+    <button id="reportbtn" type="button" onclick="change_text()">Show Block Height</button>
     <p id="bh">Click button!</p>
 
     <script>
         function change_text(){
-            document.getElementById("bh").innerHTML = "You clicked the button, I am new paragraph.";
+            document.getElementById("bh").innerHTML = "";
         }
-        </script>
+
+        $("#reportbtn").click(() => {
+                $.post("https://api-ropsten.etherscan.io/api?module=proxy&action=eth_blockNumber&apikey=YourApiKeyToken" ).done((data) => alert(data));
+        });
+    </script>
 </body>
 </html>
